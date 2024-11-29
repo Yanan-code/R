@@ -1,0 +1,40 @@
+##x0: Create a sequence, from 1 to 4000, with 4000 evenly spaced points. 
+##y0: Formula: y0=sin(2*pi*f*t), and we have y0=sin(2*pi*1/365*x0) below. The period of this wave is 365.
+
+set.seed(123)
+x0<-seq(1,4000,length.out=4000);
+y0<-sin(2*pi*x0/365);
+plot(y0)
+plot(y0,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+noise0<-rnorm(4000,0,1)
+plot(noise0,type='l')
+y0noise<-y0+noise0;
+plot(y0noise,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+
+
+##x1: Create a sequence, from 1 to 4000, with 4000 evenly spaced points. 
+##y1: Formula: y1=sin(2*pi*f*t), and we have y0=sin(2*pi*1/365*x1) below. The period of this wave is 183.
+
+set.seed(123)
+x1<-seq(1,4000,length.out=4000);
+y1<-sin(2*pi*x1/183);
+plot(y1)
+plot(y1,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+noise1<-rnorm(4000,0,1)
+plot(noise1,type='l')
+y1noise<-y1+noise1;
+plot(y1noise,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+
+
