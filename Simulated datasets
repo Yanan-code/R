@@ -19,7 +19,7 @@ plot(y0noise,type='l',col='blue',lwd=2,
 
 
 ##x1: Create a sequence, from 1 to 4000, with 4000 evenly spaced points. 
-##y1: Formula: y1=sin(2*pi*f*t), and we have y0=sin(2*pi*1/365*x1) below. The period of this wave is 183.
+##y1: Formula: y1=sin(2*pi*f*t), and we have y1=sin(2*pi*1/365*x1) below. The period of this wave is 183.
 
 set.seed(123)
 x1<-seq(1,4000,length.out=4000);
@@ -38,3 +38,47 @@ plot(y1noise,type='l',col='blue',lwd=2,
      ylab='sin(x)');
 
 
+##x2: Create a sequence, from 1 to 4000, with 4000 evenly spaced points. 
+##y2: Formula: y2=sin(2*pi*f*t), and we have y2=sin(2*pi*1/7*x2) below. The period of this wave is 7.
+
+set.seed(123)
+x2<-seq(1,4000,length.out=4000);
+y2<-sin(2*pi*x1/7);
+plot(y2)
+plot(y2,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+noise2<-rnorm(4000,0,1)
+plot(noise2,type='l')
+y2noise<-y2+noise2;
+plot(y2noise,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+
+##x3: Create a sequence, from 1 to 4000, with 4000 evenly spaced points. 
+##y3: Formula: y3=sin(2*pi*f*t), and we have y3=2*sin(2*pi*1/7*x3+130) below. The period of this wave is 183.
+## This one has Amplitute A=2 and Phase phi=130
+
+set.seed(123)
+x3<-seq(1,4000,length.out=4000);
+y3<-2*sin(2*pi*x1/365+130);
+plot(y3)
+plot(y3,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+noise3<-rnorm(4000,0,1)
+plot(noise3,type='l')
+y3noise<-y3+noise3;
+plot(y3noise,type='l',col='blue',lwd=2,
+     main='sine wave',
+     xlab='Angle(radians)',
+     ylab='sin(x)');
+#######comparison between y0 and y3#################
+#lines(y0noise,type='l',col='lightblue',lwd=2,
+#     main='sine wave',
+#     xlab='Angle(radians)',
+#     ylab='sin(x)');
+###################################################
