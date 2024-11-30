@@ -1,0 +1,19 @@
+set.seed(123)
+x0<-seq(1,4000,length.out=4000);
+y0<-sin(2*pi*x0/365);
+y1<-sin(2*pi*x0/183);
+y2<-sin(2*pi*x0/7);
+y3<-sin(2*pi*x0/365+130);
+y4<-0.5*sin(2*pi*x0/122);
+plot(y0,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
+plot(y1,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
+plot(y2,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
+plot(y3,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
+plot(y4,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
+noise0<-rnorm(4000,0,1)
+noise1<-rnorm(4000,0,0.1)
+plot(noise0,type='l')
+plot(noise1,type='l')
+##addition
+y_noise<-y0+y1+y2+y3+y4+noise0+noise1
+plot(y_noise,type='l',col='blue',lwd=2,main='sine wave',xlab='Angle(radians)',ylab='sin(x)');
