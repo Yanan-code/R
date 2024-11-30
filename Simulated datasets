@@ -102,7 +102,9 @@ plot(y4noise,type='l',col='blue',lwd=2,
      main='sine wave',
      xlab='Angle(radians)',
      ylab='sin(x)');
+#######comparison between y1 and y4#################
 #lines(y1noise,type='l',col='lightblue',lwd=2,
 #main='sine wave',
 #xlab='Angle(radians)',
 #ylab='sin(x)');
+####################################################
