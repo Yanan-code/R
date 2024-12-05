@@ -1,1 +1,40 @@
 
+# Generate a sample signal with dominant frequency
+set.seed(123)
+time <- seq(1,5844,length.out=5844)  # Time vector
+signal <- manh_pm25
+
+# FFT
+fft_result <- fft(signal)
+
+# Frequency vector
+n <- length(time)
+fs <- 1 / (time[2] - time[1])  # Sampling frequency
+freq <- (0:(n - 1)) * (fs / n)  # Frequency vector
+
+# Amplitude spectrum
+amplitude <- Mod(fft_result)
+
+# Focus on positive frequencies
+positive_freq <- freq[1:(n / 2)]
+positive_amplitude <- amplitude[1:(n / 2)]
+
+# Find the dominant frequency
+dominant_freq_index <- which.max(positive_amplitude)
+dominant_freq <- positive_freq[dominant_freq_index]
+
+deminant_freq_ind1<-order(positive_amplitude,decreasing=TRUE)[1:9]
+dominant_fr<-positive_freq[deminant_freq_ind1]
+periods<-round(1/dominant_fr)
+print(periods)
+
+# Output
+cat("The dominant frequency is:", dominant_freq, "Hz\n")
+cat("The period is:", 1/dominant_freq, "Hz\n")
+
+
+# Plot the spectrum
+plot(positive_freq, positive_amplitude, type = "l", col = "blue",
+     xlab = "Frequency (Hz)", ylab = "Amplitude", main = "Frequency Spectrum",xlim=c(0,0.2),ylim=c(0,4000))
+points(dominant_freq, positive_amplitude[dominant_freq_index], col = "red", pch = 19)
+abline(v=0.1428)
