@@ -1,0 +1,15 @@
+myvector <- time1
+r <- 1000
+n <- length(time1)
+
+###block size
+p <- 20 
+Sys.time()
+mymtx<-matrix(NA, r , n )
+for (i in 1:r)
+{
+  for (k in 1:p)
+  {extract.myvector<-myvector[seq(k,length(myvector),p)];
+  mymtx[i,seq(k,length(myvector),p)]<-sample(extract.myvector,size=length(extract.myvector),replace=TRUE)
+  }
+}
